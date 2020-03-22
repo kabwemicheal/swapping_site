@@ -1,0 +1,29 @@
+<%- include("partials/hearder") %> 
+<div class="container-fluid">
+    <h1 class="display-4 mb-4">
+        your offers include
+    </h1>
+<div class="row">
+ <% foundPros.forEach(function(fPro){ %>
+    <div class="d-block col-12 col-lg-3 col-xl-3">
+        <div class="card ">
+          <img name="image" class="card-img-top" src="<%= fPro.image%> ">  
+        </div>
+        <div class="card-body shadow-lg p-4 mb-4 bg-light">
+          <p>
+            <span name="text" class="card-title lead" ><strong><%= fPro.name%></strong></span>
+            <span class="float-right"><small class="text-muted"><%= moment(fPro.createdAt).fromNow()%></small></span>
+          </p>
+            <p name="description" class="card-text"><%= fPro.description %></p>
+            <p class="card-text">
+             <form action="/items/<%=foundP._id %>/offers/new/<%= fPro._id %>" method="POST">
+             <button class="btn btn-outline-success btn-sm float-left mr-1">add offer</button>
+            </form>
+           </p>
+        </div>
+    </div>
+    <% }) %>
+</div>
+</div>
+
+    <%- include("partials/footer") %> 

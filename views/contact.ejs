@@ -1,0 +1,13 @@
+<%- include("partials/hearder") %>
+<div class="container">
+    <div class="mt-4 mx-auto shadow-lg p-4 mb-4 bg-white text-center w-50">
+        <h1 class="display-4">contact details for user: <%= fUser.username %></h1>
+        <div class="list-group">
+            <li class="list-group-item list-group-item-success text-dark"><%= fUser.fullName %></li>
+            <li class="list-group-item list-group-item-success text-dark"><%= fUser.phoneNumber %></li>
+            <li class="list-group-item list-group-item-success text-dark"><%= fUser.email %></li>
+            <li class="list-group-item list-group-item-success text-dark"><%= fUser.physicalAddress %></li>
+        </div>
+    </div> 
+</div>
+<%- include("partials/footer") %>

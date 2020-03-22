@@ -1,0 +1,53 @@
+<%- include("partials/hearder") %>
+<div class="container-fluid mh-100 my-auto">
+  <div id="" class="row">
+      <div class="col-md-6">
+          <h2 class="">WHAT AM OFFERING!</h2>
+          <div class="img-thumbnail border border-0">
+              <img class="img-fluid" src=" <%= resItem.image%> ">
+           <div class="card-body shadow-lg p-4 mb-4 bg-white">
+               <h5 class="float-right"> <small class="text-muted"><%= moment(resItem.createdAt).fromNow() %></small></h5>
+              <a href="" class="card-title"><%= resItem.name%></a>
+              <p class="card-text"><%= resItem.description %></p>
+              <a class="card-text" href="/items/<%= resItem._id %>/user/<%= resItem.author.id %>"> by: <small class="text-muted"><%= resItem.author.username %></small></a>
+            </div>
+          </div>
+  </div>
+  <div class="col-md-6">
+    <div class="mb-4">
+      <h2>OFFERS</h2>
+      <% if(currentUser && (resItem.author.id.toString() != currentUser._id.toString())){ %>
+      <a class="btn btn-outline-success" href="/items/<%= resItem._id %>/offers/new ">whats your offer?</a>
+    </div>
+    <% } %>
+      <% resItem.offers.forEach(function(resOffer){ %>
+          <div class=" border border-0 card mb-4 pb-3 shadow-lg p-4 mb-4 bg-light" style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src="<%= resOffer.image %>" class="card-img mh-100" style="max-height: 100%;">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Offer : <%= resOffer.text %></h5>
+                    <p class="card-text"><strong>Description</strong> : <%= resOffer.description %></p>
+                    <p class="card-text"><strong>Condition:</strong> <%= resOffer.condition %></p>
+                    <a href="" class="card-text"><emp> @user </emp> <strong><%= resOffer.author.username %></strong></a>
+                    <p class="card-text"><small class="text-muted"><%= moment(resOffer.createdAt).fromNow() %></small></p>
+                    <a class="btn btn-outline-success btn-sm float-left mr-1" href="/items/<%= resItem._id %>/offers/<%= resOffer._id %>/contact">contact</a>
+                    <a class="btn btn-outline-success btn-sm float-left mr-1" href="/items/<%= resItem._id %>/offers/<%= resOffer._id %>/swap">swap</a>
+                    <% if(currentUser && resOffer.author.id.equals(currentUser._id)){ %>
+                    <a class="btn btn-outline-success btn-sm float-left mr-1" href="/items/<%= resItem._id %>/offers/<%= resOffer._id %>/edit">edit</a>
+                    <form class="float-left" id="delete" action="/items/<%= resItem._id %>/offers/<%= resOffer._id %>?_method=DELETE" method="POST">
+                      <button class="btn btn-danger btn-sm">Delete</button>
+                  </form>
+                  <% } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+     <% }) %>
+  </div>
+</div>
+</div>
+
+<%- include("partials/footer") %>

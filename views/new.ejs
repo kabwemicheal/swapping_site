@@ -1,0 +1,30 @@
+<%- include("partials/hearder") %>
+<div class="container">
+    <div class="bg-light m-4 p-4">
+        <h1 class="display-4 text-center ">Add a new item</h1>
+        <form class="w-50 mx-auto" action="/items" method="POST">
+            <div class="form-group">
+                <input class="form-control pl-3 border border-0" type="text" name="name" placeholder="item name">
+            </div>
+            <div class="form-group">
+                <input class="form-control pl-3 border border-0" type="text" name="image" placeholder="image url">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control pl-3 border border-0" name="description" cols="30" rows="4" placeholder="description"></textarea>
+            </div>
+            <div class="form-group">
+                <input class="form-control pl-3 border border-0" type="text" name="condition" placeholder="condition">
+            </div>
+            <div class="form-group">
+                    <select class="form-control pl-3 border border-0" name="category">
+                      <option name="Electronics">Electronics and gadgets</option>
+                      <option name="houses">houses and land</option>
+                      <option name="Stationery">Stationery</option>
+                      <option name="Cars">Cars</option>
+                    </select>
+                  </div>
+            <button type="submit" class="btn btn-info">Add item</button>
+        </form>
+    </div>
+</div>
+<%- include("partials/footer") %>

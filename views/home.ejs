@@ -1,0 +1,25 @@
+<%- include("partials/hearder") %>
+    <div class="container-fluid">
+        <div id="mgt bg_col" class="jumbotron mb-4 shadow-lg text-center">
+          <h1 class="display-4"><i class="fas fa-exchange-alt"></i>&nbsp; WELCOME TO THE SWAP SITE</h1>
+          <hr size="1">
+          <p class="lead">we are here to help you swap</p>
+        </div>
+        </div>
+    <div class="container">
+        <h1>CHOOSE CATEGORY</h1>
+    <div class="row">
+        <% foundProducts.forEach(function(product){ %>
+        <div class="col-lg-3">
+        <div class="card shadow-lg bg-light mb-4">
+            <div class="card-body text-center">
+                <a href="/names" class="card-link"><%= product.category %></a>
+            </div>
+        </div>
+    </div>
+    <% }) %>
+</div>
+    <a href="/items"> view all the products</a>
+    <a href="/items/new">add a new product</a>
+</div>
+<%- include("partials/footer") %>

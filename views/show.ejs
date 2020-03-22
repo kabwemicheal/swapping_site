@@ -1,0 +1,24 @@
+<%- include("partials/hearder") %>
+     <div class="container">
+         <div class="row mt-4">
+             <div class="col-md-9">
+                <div class="img-thumbnail border border-0">
+                    <img class="img-fluid" src=" <%= requestedItem.image%> ">
+                <div class="card shadow-lg p-4 mb-4 bg-white">
+                    <div class="card-body">
+                     <h6 class="float-right "><small class="muted"><%= moment(requestedItem.createdAt).fromNow()%></small></h6>
+                    <a href="" class="card-title"><%= requestedItem.name%></a>
+                    <p class="card-text"><%= requestedItem.description %></p>
+                    <% if (currentUser && requestedItem.author.id.equals(currentUser._id)){ %>
+                    <a class="btn btn-outline-success float-left mr-1" href="/items/<%= requestedItem._id %>/edit">Edit</a> 
+                    <form class="float-left" id="delete" action="/items/<%= requestedItem._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                    <% } %>
+                </div>
+                </div>
+            </div>
+         </div>
+     </div>
+</div>
+ <%- include("partials/footer") %>

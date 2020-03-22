@@ -1,0 +1,43 @@
+<%- include("partials/hearder") %>
+<div class="container">
+    <div class="mt-4">
+        
+        <form action="/items/<%= item_id %>/offers/<%= foundOffer._id %>?_method=PUT" method="POST" class="mx-auto w-50">
+            <!-- <div class="shadow-lg p-4 mb-4 bg-white">
+                <h1 class="display-4 text-center">Edit <%= foundOffer.text %></h1>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="offer[text]" value="<%= foundOffer.text %>">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="offer[image]" value="<%= foundOffer.image %>">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="offer[condition]" value="<%= foundOffer.condition %>">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="offer[description]"
+                        value="<%= foundOffer.description %>">
+                </div>
+            </div> -->
+            <div class="shadow-lg p-4 mb-4 bg-white">
+                <h1 class="display-4 text-center">contact details</h1>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="user[fullName]" value="<%= foundUser.fullName %>">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="user[physicalAddress]" value="<%= foundUser.physicalAddress %>">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="user[phoneNumber]" value="<%= foundUser.phoneNumber %>">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="user[email]" value="<%= foundUser.email %>">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-outline-success">update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<%- include("partials/footer") %>

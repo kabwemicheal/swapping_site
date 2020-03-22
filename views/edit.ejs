@@ -1,0 +1,32 @@
+<%- include("partials/hearder") %>
+<div class="container">
+<div class="mt-4">
+<form action="/items/<%= foundItem._id %>?_method=PUT" method="POST" class="bg-light p-4 mx-auto w-50">
+    <div class="form-group">
+    <input type="text" class="form-control" name="product[name]" value="<%= foundItem.name %>">
+</div>
+    <div class="form-group">
+    <input type="text" class="form-control" name="product[image]" value="<%= foundItem.image %>">
+</div>
+<div class="form-group">
+    <input type="text" class="form-control" name="product[description]" value="<%= foundItem.description %>">
+</div>
+<div class="form-group">
+    <input type="text" class="form-control" name="product[condition]" value="<%= foundItem.condition %>">
+</div>
+<div class="form-group">
+    <select class="form-control" name="product[category]">
+      <option><%= foundItem.category %></option>
+      <option name="Electronics and gadgets">Electronics and gadgets</option>
+      <option name="houses and land">houses and land</option>
+      <option name="Stationery">Stationery</option>
+      <option name="Cars">Cars</option>
+    </select>
+  </div>
+<div class="form-group">
+    <button class="btn btn-outline-success">update</button>
+</div>
+</form>
+</div>
+</div>
+<%- include("partials/footer") %>
