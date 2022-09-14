@@ -63,20 +63,6 @@ middlewareObj.isEmp =  function(obj) {
     return true;
   }
 
-// middlewareObj.checkUserPro = function(req, res, next){
-//         Product.find({}).where("author.id").equals(req.user._id).exec(function(err, foundPros){
-//             if(isEmptyObject(foundPros)){
-//                 req.flash("error", "you dont have offers");
-//                 res.redirect("/items/" + req.params.id +"/reserve")
-//             }  
-//             else if(err){
-//                 req.flash("error", "something is not correct");
-//             } 
-//             else{
-//                 return next();
-//             }
-//         });
-//     }
     
 
 module.exports = middlewareObj;
